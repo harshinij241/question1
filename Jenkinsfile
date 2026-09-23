@@ -3,15 +3,24 @@ pipeline{
 
     stages{
         stage('Checkout'){
-            git branch : 'main', url : 'https://github.com/harshinij241/question1'
+            steps{
+                git branch : 'main', url : 'https://github.com/harshinij241/question1'
+            }
+            
         }
 
         stage('Install dependencies'){
-            bat 'pip install -r requirements.txt'
+            steps{
+                bat 'pip install -r requirements.txt'
+            }
+            
         }
 
         stage('Running unit test'){
-            bat 'python -m pytest test_app.py'
+            steps{
+                bat 'python -m pytest test_app.py'
+            }
+            
         }
     }
     post{
